@@ -2,18 +2,22 @@ import axios from 'axios';
 
 const API_BASE = import.meta.env.VITE_API_BASE;
 
-export const fetchSales = async (file) => {
+// Invio file a /sales
+export const uploadSales = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
-  return axios.post(`${API_BASE}/sales`, formData, {
-    responseType: 'blob',
+  const response = await axios.post(`${API_BASE}/sales`, formData, {
+    responseType: 'blob'
   });
+  return response.data;
 };
 
-export const fetchOrders = async (file) => {
+// Invio file a /orders
+export const uploadOrders = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
-  return axios.post(`${API_BASE}/orders`, formData, {
-    responseType: 'blob',
+  const response = await axios.post(`${API_BASE}/orders`, formData, {
+    responseType: 'blob'
   });
+  return response.data;
 };
