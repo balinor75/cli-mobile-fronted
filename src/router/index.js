@@ -4,7 +4,8 @@ import LoginForm from '../components/LoginForm.vue';
 
 const routes = [
   { path: '/', component: LoginForm },
-  { path: '/dashboard', component: DashboardView, meta: { requiresAuth: true } }
+  { path: '/dashboard', component: DashboardView, meta: { requiresAuth: true } },
+  { path: '/upload', component: UploadView, meta: { requiresAuth: true } }
 ];
 
 const router = createRouter({
