@@ -12,6 +12,7 @@ const router = createRouter({
   routes
 });
 
+// Middleware per proteggere le route
 router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem('auth') === 'true';
   if (to.meta.requiresAuth && !isAuthenticated) next('/');
