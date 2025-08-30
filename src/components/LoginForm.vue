@@ -16,6 +16,7 @@ const email = ref('');
 const otp = ref('');
 const router = useRouter();
 
+// Funzione di login simulata
 const submit = async () => {
   const success = await loginWithOTP(email.value, otp.value);
   if (success) router.push('/dashboard');
