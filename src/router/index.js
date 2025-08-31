@@ -1,22 +1,27 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import DashboardView from '../views/DashboardView.vue';
-import LoginForm from '../components/LoginForm.vue';
+import { createRouter, createWebHistory } from "vue-router";
+import DashboardView from "../views/DashboardView.vue";
+import LoginForm from "../components/LoginForm.vue";
+import UploadView from "../views/UploadView.vue";
 
 const routes = [
-  { path: '/', component: LoginForm },
-  { path: '/dashboard', component: DashboardView, meta: { requiresAuth: true } },
-  { path: '/upload', component: UploadView, meta: { requiresAuth: true } }
+  { path: "/", component: LoginForm },
+  {
+    path: "/dashboard",
+    component: DashboardView,
+    meta: { requiresAuth: true },
+  },
+  { path: "/upload", component: UploadView, meta: { requiresAuth: true } },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
 });
 
 // Middleware per proteggere le route
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('auth') === 'true';
-  if (to.meta.requiresAuth && !isAuthenticated) next('/');
+  const isAuthenticated = localStorage.getItem("auth") === "true";
+  if (to.meta.requiresAuth && !isAuthenticated) next("/");
   else next();
 });
 
