@@ -7,6 +7,6 @@ export default defineConfig({
     host: true,
     port: 3000,
     allowedHosts: ["swlncd-3000.csb.app"],
-    allowedHosts: ["swlncd-50000.csb.app"],
+    allowedHosts: ["swlncd-2222.csb.app"],
   },
 });
